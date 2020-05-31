@@ -40,6 +40,9 @@ $(function () {
       } else {
         $(this).attr("target", "_blank");
       }
+      if (window.innerWidth <= 640) {
+          $("#book_sidebar").toggle(300)
+      }
     });
     window.onhashchange = function () {
       loadContent();
@@ -160,3 +163,8 @@ $(function () {
   }
 
 });
+
+
+function toggleBookHeaderVisible() {
+  $("#book_sidebar").toggle(300)
+}

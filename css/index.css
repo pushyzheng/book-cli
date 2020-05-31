@@ -185,7 +185,8 @@ body {
 
 #book_sidebar {
   margin-top: 0;
-  padding-left: 50px;
+  padding-left: 40px;
+  padding-right: 10px;
   padding-bottom: 25px;
   padding-top: 75px;
   box-shadow: 0 0 0px 1px #ececec;
@@ -230,19 +231,12 @@ body {
 }
 
 #book_content {
-  padding-top: 50px;
+  padding-top: 70px;
   padding-bottom: 100px;
   font-size: 15px;
   padding-right: 25px;
   line-height: 2;
   counter-reset: section;
-}
-
-@media (max-width: 40rem) {
-  #book_content {
-    max-width: 800px;
-    padding-left: 25px;
-  }
 }
 
 #book_content pre {
@@ -306,8 +300,11 @@ body {
 #book_content ul {
   display: block;
   list-style-type: none;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+}
+
+/* TOC 缩进 */
+#book_content ul ul {
+  margin-left: 20px;
 }
 
 #book_content ol {
@@ -478,36 +475,6 @@ blockquote {
   margin-left: 5px;
 }
 
-@media (min-width: 40rem) {
-  #book_sidebar {
-    width: 280px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    padding-bottom: 50px;
-    padding-top: 100px;
-    overflow: auto;
-  }
-  #book_content {
-    max-width: 800px;
-    padding-left: 330px;
-    margin: 0 auto;
-  }
-  #flip {
-    margin-left: 545px;
-    width: 150px;
-  }
-  #loading,
-  #error {
-    display: none;
-    position: fixed;
-    height: 17px;
-    top: 45%;
-    margin-left: 560px;
-    font-size: 14px;
-  }
-}
-
 #book_header {
   height: 60px;
   background: rgba(255, 255, 255, 0.78);
@@ -582,6 +549,12 @@ a.book-footer-next-link {
   margin: 10px 30px;
 }
 
+.book-header-menu {
+  float: right;
+  font-size: 26px;
+  margin: 10px 30px;
+}
+
 .book-footer {
   margin-top: 50px;
 }
@@ -618,4 +591,59 @@ a.book-footer-next-link {
   font-size: 30px;
   margin-top: -20px;
   margin-left: -10px;
+}
+
+/* 大屏幕 */
+@media (min-width: 40rem) {
+  #book_sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-bottom: 50px;
+    padding-top: 100px;
+    overflow: auto;
+  }
+  #book_content {
+    max-width: 1000px;
+    padding-left: 330px;
+    margin: 0 auto;
+  }
+  #flip {
+    margin-left: 545px;
+    width: 150px;
+  }
+  #loading,
+  #error {
+    display: none;
+    position: fixed;
+    height: 17px;
+    top: 45%;
+    margin-left: 560px;
+    font-size: 14px;
+  }
+  .book-header-menu {
+    display: none;
+  }
+}
+
+/* 小屏幕 */
+@media (max-width: 40rem) {
+  #book_content {
+    max-width: 800px;
+    padding-left: 25px;
+  }
+
+  #book_sidebar {
+    display: none;
+
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 1;
+  }
+
+  .book-header-github {
+    display: none;
+  }
 }
